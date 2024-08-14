@@ -1,0 +1,9 @@
+﻿using Pronia1.Models;
+
+namespace Pronia1.ViewModels
+{
+    public class HomeVM
+    {
+        public List<Slide> Slides { get; set; }
+    }
+}
