@@ -22,5 +22,25 @@ namespace Pronia1.Areas.ProniaAdmin.Controllers
                 .ToListAsync();
             return View(categories);
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Create(Category category)
+        {
+            if (!ModelState.IsValid){
+                return View();
+            }
+            bool result = await context.Categories.AnyAsync(x => x.Name.Trim() == category.Name.Trim());
+            if (result) {
+                ModelState.AddModelError("Name", "Name already exists");
+                return View();
+            }
+            category.CreatedAt=DateTime.Now;
+            await context.Categories.AddAsync(category);
+            await context.SaveChangesAsync();
+           return RedirectToAction(nameof(Index));
+        }
     }
 }
