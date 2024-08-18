@@ -13,48 +13,19 @@ namespace Pronia1.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            /*List<Slide> slides = new List<Slide>
-            {
-                new Slide
-                {
-                    
-                    Title="Title1",
-                    SubTitle="Subtitle1",
-                    Description="Description1",
-                    Order=1,
-                    Image="1-1-524x617.png",
-                    IsDeleted=false,
-                    CreatedAt=DateTime.Now
-
-                },
-                new Slide
-                {
-                 
-                    Title="Title2",
-                    SubTitle="Subtitle2",
-                    Description="Description2",
-                    Order=2,
-                    Image="1-2-524x617.png",
-                    IsDeleted=false,
-                    CreatedAt=DateTime.Now
-
-                }
-            };*/
-           // _context.Slides.AddRange(slides);
-            //_context.SaveChanges();
             HomeVM homeVM = new HomeVM
             {
-                Slides = _context.Slides.OrderBy(x=>x.Order).Take(2).ToList(),
-                Products = _context.Products
+                Slides = await _context.Slides.OrderBy(x=>x.Order).Take(2).ToListAsync(),
+                Products = await _context.Products
                 .Include(x => x.ProductImages.Where(i => i.isPrimary != null))
                 .OrderByDescending(p=>p.CreatedAt)
                 .Take(8)
-                .ToList()
+                .ToListAsync()
         };
 
-            return View(homeVM);
+            return  View(homeVM);
         }
     }
 }

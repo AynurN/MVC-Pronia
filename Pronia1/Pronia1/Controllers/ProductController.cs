@@ -17,24 +17,24 @@ namespace Pronia1.Controllers
         {
             return View();
         }
-        public IActionResult Detail(int? id)
+        public async Task< IActionResult> Detail(int? id)
         {
             if(id==null || id <= 0)
             {
                 return BadRequest();
             }
-            Product? product = _context.Products
+            Product? product = await _context.Products
                 .Include(p=>p.Category)
                 .Include(p=>p.ProductImages.OrderByDescending(pi=>pi.isPrimary))
-                .FirstOrDefault(p => p.Id == id);
+                .FirstOrDefaultAsync(p => p.Id == id);
                 
             if (product == null)
             {
                 return NotFound();
             }
-            DetailVM detailVM = new DetailVM { Product=product, Products=_context.Products.Where(p=>p.CategoryId==product.CategoryId && p.Id==id).
+            DetailVM detailVM = new DetailVM { Product=product, Products= await _context.Products.Where(p=>p.CategoryId==product.CategoryId && p.Id!=id).
                 Include(p=>p.ProductImages.Where(x=>x.isPrimary!=null)).
-                ToList() };
+                ToListAsync() };
 
             return View(detailVM);
         }
