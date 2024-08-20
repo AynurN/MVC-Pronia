@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "errovyxNow0OFGGibkY61PNNo9+d0T7ML+mgMmBFlwU=",
+  "Hash": "+Pnd2qiuAzpH+OEY4bbjUTzSOCBzq9PjfFyozKyelM4=",
   "Source": "Pronia1",
   "BasePath": "_content/Pronia1",
   "Mode": "Default",
@@ -4214,6 +4214,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\website-images\\1-3-370x300.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\PB201-all\\MVC\\Pronia1\\Pronia1\\wwwroot\\assets\\images\\website-images\\1351_lg.jpg",
+      "SourceId": "Pronia1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\PB201-all\\MVC\\Pronia1\\Pronia1\\wwwroot\\",
+      "BasePath": "_content/Pronia1",
+      "RelativePath": "assets/images/website-images/1351_lg.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\website-images\\1351_lg.jpg"
     },
     {
       "Identity": "C:\\Users\\user\\Desktop\\PB201-all\\MVC\\Pronia1\\Pronia1\\wwwroot\\assets\\images\\website-images\\1-3-570x633.jpg",

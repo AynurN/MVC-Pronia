@@ -1,4 +1,4 @@
-﻿@model List<Category>
+﻿@model List<Slide>
 @{
     int num = 0;
 }
@@ -11,46 +11,52 @@
                     <div class="card-body">
                         <div style="display:flex; justify-content:space-between">
                             <h4 class="card-title">Category Table</h4>
-                            <a asp-action="create"  class="btn btn-success">Create</a>
+                            <a asp-action="create" class="btn btn-success">Create</a>
                         </div>
-                       
+
                         <div class="table-responsive">
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
                                         <th>
-                                           No
+                                            No
                                         </th>
                                         <th>
-                                            Name
+                                            Image
                                         </th>
                                         <th>
-                                            Product Count
+                                            Title
+                                        </th>
+                                        <th>
+                                            Order
                                         </th>
                                         <th>
                                             Settings
                                         </th>
-             
+
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach(Category category in Model)
+                                    @foreach (Slide slide in Model)
                                     {
                                         num++;
 
                                         <tr>
                                             <td class="py-1">
-                                               @num
+                                                @num
                                             </td>
                                             <td>
-                                              <p>@category.Name</p>
+                                             <img src="~/assets/images/website-images/@slide.Image" alt="Alternate Text" />
                                             </td>
                                             <td>
-                                                <p>@category.Products.Count</p>
+                                                <p>@slide.Title</p>
                                             </td>
                                             <td>
-                                                <a asp-action="update" asp-route-id="@category.Id" class="btn btn-warning"><i class="mdi mdi-grease-pencil"></i></a>
-                                                <a asp-action="delete" asp-route-id="@category.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                                                <p>@slide.Order</p>
+                                            </td>
+                                            <td>
+                                                <a asp-action="update" asp-route-id="@slide.Id" class="btn btn-warning"><i class="mdi mdi-grease-pencil"></i></a>
+                                                <a asp-action="delete" asp-route-id="@slide.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
                                                 <a class="btn btn-primary"><i class="mdi mdi-book-open"></i></a>
                                             </td>
 
