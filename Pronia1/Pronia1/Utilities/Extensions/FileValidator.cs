@@ -39,5 +39,19 @@ namespace Pronia1.Utilities.Extensions
             }
              return fileName;
         }
+        public static async void DeleteFile(this string fileName, params string[] roots)
+        {
+            string path = string.Empty;
+            foreach (var item in roots)
+            {
+                path = Path.Combine(path, item);
+
+            }
+            path = Path.Combine(path, fileName);
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+        }
     }
 }

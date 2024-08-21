@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+Pnd2qiuAzpH+OEY4bbjUTzSOCBzq9PjfFyozKyelM4=",
+  "Hash": "W4HueJpaEYSu8m2VE74SFxcJNDZvkKL/17m7/0mGZZE=",
   "Source": "Pronia1",
   "BasePath": "_content/Pronia1",
   "Mode": "Default",
@@ -4632,6 +4632,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\website-images\\dark.png"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\PB201-all\\MVC\\Pronia1\\Pronia1\\wwwroot\\assets\\images\\website-images\\f9ad319f-14a6-451b-b7c9-a06849f7eb57slider-2 (1).png",
+      "SourceId": "Pronia1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\PB201-all\\MVC\\Pronia1\\Pronia1\\wwwroot\\",
+      "BasePath": "_content/Pronia1",
+      "RelativePath": "assets/images/website-images/f9ad319f-14a6-451b-b7c9-a06849f7eb57slider-2 (1).png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\website-images\\f9ad319f-14a6-451b-b7c9-a06849f7eb57slider-2 (1).png"
     },
     {
       "Identity": "C:\\Users\\user\\Desktop\\PB201-all\\MVC\\Pronia1\\Pronia1\\wwwroot\\assets\\images\\website-images\\quotation.png",

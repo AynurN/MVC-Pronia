@@ -1,0 +1,60 @@
+﻿@model CreateAdminProductVM
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+
+            <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Basic form elements</h4>
+                        <p class="card-description">
+                            Basic form elements
+                        </p>
+                        <form class="forms-sample" method="post" enctype="multipart/form-data">
+                            @* <div class="form-group">
+                            <label for="Photo" method="post">Photo</label>
+                            <input asp-for="Photo" class="form-control" placeholder="Photo" accept="image/*">
+                            <span asp-validation-for="Photo" class="text-danger"></span>
+                            </div> *@
+                            <div class="form-group">
+                                <label for="Name" method="post">Name</label>
+                                <input asp-for="Name" class="form-control" placeholder="Name">
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="SKU" method="post">SKU</label>
+                                <input asp-for="SKU" class="form-control" placeholder="SKU">
+                                <span asp-validation-for="SKU" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="Price" method="post">Price</label>
+                                <input asp-for="Price" class="form-control" placeholder="Price">
+                                <span asp-validation-for="Price" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="CategoryId" method="post">Product</label>
+                                <select class="form-control" asp-for="CategoryId">
+                                    <option selected disabled>Choose Category</option>
+                                    @foreach (Category category in Model.Categories)
+                                    {
+                                        <option value="@category.Id">@category.Name</option>
+                                    }
+                                </select>
+                                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="Description" method="post">Description</label>
+                                <input asp-for="Description" class="form-control" placeholder="Description">
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                            <button type="submit" class="btn btn-primary me-2">Create</button>
+                            <a asp-action="Index" class="btn btn-light">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
