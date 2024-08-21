@@ -190,7 +190,11 @@
                             <span class="title">Tags :</span>
                             <ul>
                                 <li>
-                                    <a href="#">Furniture</a>
+                                    @foreach(ProductTag ptag in Model.Product.ProductTags)
+                                    {
+                                        <a href="#">@ptag.Tag.Name</a>
+                                        
+                                    }
                                 </li>
                             </ul>
                         </div>
