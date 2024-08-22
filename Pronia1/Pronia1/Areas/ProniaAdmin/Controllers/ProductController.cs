@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Packaging;
 using Pronia1.Areas.ProniaAdmin.ViewModels;
 using Pronia1.DAL;
 using Pronia1.Models;
@@ -47,47 +48,60 @@ namespace Pronia1.Areas.ProniaAdmin.Controllers
             if (!ModelState.IsValid)
             {
                 productVM.Categories = await context.Categories.Where(c => !c.IsDeleted).ToListAsync();
-                productVM.Tags = await context.Tags.Where(c => !c.IsDeleted).ToListAsync();
+                productVM.Tags = await context.Tags.Where(t => !t.IsDeleted).ToListAsync();
                 return View(productVM);
-             
             }
-            bool result = await context.Categories.AnyAsync(c => c.Id == productVM.CategoryId && !c.IsDeleted);
-            if (!result) {
+            bool categoryExists = await context.Categories.AnyAsync(c => c.Id == productVM.CategoryId && !c.IsDeleted);
+            if (!categoryExists)
+            {
                 ModelState.AddModelError("CategoryId", "Category does not exist!");
                 productVM.Categories = await context.Categories.Where(c => !c.IsDeleted).ToListAsync();
-                productVM.Tags = await context.Tags.Where(c => !c.IsDeleted).ToListAsync();
-                return View(productVM);
-                    }
-           bool tagResult= productVM.TagIds.Any(tId =>!productVM.Tags.Exists(t => t.Id == tId));
-            if (tagResult)
-            {
-                ModelState.AddModelError("TagIds", "Tag does not exist!");
+                productVM.Tags = await context.Tags.Where(t => !t.IsDeleted).ToListAsync();
                 return View(productVM);
             }
-            Product product = new Product()
+
+            if (productVM.TagIds != null)
+            {
+                var validTagIds = await context.Tags.Where(t => !t.IsDeleted).Select(t => t.Id).ToListAsync();
+                bool invalidTagSelected = productVM.TagIds.Any(tId => !validTagIds.Contains(tId));
+                if (invalidTagSelected)
+                {
+                    ModelState.AddModelError("TagIds", "One or more selected tags do not exist!");
+                    productVM.Categories = await context.Categories.Where(c => !c.IsDeleted).ToListAsync();
+                    productVM.Tags = await context.Tags.Where(t => !t.IsDeleted).ToListAsync();
+                    return View(productVM);
+                }
+            }
+
+            Product product = new Product
             {
                 Name = productVM.Name,
                 CategoryId = productVM.CategoryId,
                 SKU = productVM.SKU,
-                Descroiption = productVM.Description,
+                Descroiption= productVM.Description,
                 Price = productVM.Price,
-                ProductTags = productVM.TagIds.Select(tId => new ProductTag
-                {
-                    TagId = tId
-                }).ToList(),
                 CreatedAt = DateTime.Now
             };
+
+            if (productVM.TagIds != null)
+            {
+                product.ProductTags = productVM.TagIds.Select(tId => new ProductTag
+                {
+                    TagId = tId
+                }).ToList();
+            }
+
             await context.AddAsync(product);
-            await context.SaveChangesAsync(); 
+            await context.SaveChangesAsync();
 
-                return RedirectToAction(nameof(Index));
-
+            return RedirectToAction(nameof(Index));
         }
+
 
         public async Task<IActionResult> Update(int? id)
         {
             if (id is null || id < 1) return BadRequest();
-            Product? product = await context.Products.Where(p => !p.IsDeleted).FirstOrDefaultAsync(p => p.Id == id);
+            Product? product = await context.Products.Include(p=>p.ProductTags).Where(p => !p.IsDeleted).FirstOrDefaultAsync(p => p.Id == id);
             if( product is null) return NotFound();
             UpdateProductVM productVM = new UpdateProductVM
             {
@@ -96,7 +110,9 @@ namespace Pronia1.Areas.ProniaAdmin.Controllers
                 Price = product.Price,
                 SKU = product.SKU,
                 CategoryId = product.CategoryId,
-                Categories = await context.Categories.Where(c => !c.IsDeleted).ToListAsync()
+                Categories = await context.Categories.Where(c => !c.IsDeleted).ToListAsync(),
+                Tags= await context.Tags.Where(c => !c.IsDeleted).ToListAsync(),
+                TagIds=product.ProductTags.Select(pt=>pt.TagId).ToList()
             };
             return View(productVM);
         }
@@ -104,9 +120,10 @@ namespace Pronia1.Areas.ProniaAdmin.Controllers
         public async Task<IActionResult> Update(int? id, UpdateProductVM productVM)
         {
             if (id is null || id < 1) return BadRequest();
-            Product? exist = await context.Products.Where(p => !p.IsDeleted).FirstOrDefaultAsync(p => p.Id == id);
+            Product? exist = await context.Products.Include(p => p.ProductTags).Where(p => !p.IsDeleted).FirstOrDefaultAsync(p => p.Id == id);
             if (exist is null) return NotFound();
             productVM.Categories = await context.Categories.Where(c => !c.IsDeleted).ToListAsync();
+            productVM.Tags = await context.Tags.Where(c => !c.IsDeleted).ToListAsync();
             if (!ModelState.IsValid)
             {
                 return View(productVM);
@@ -121,6 +138,9 @@ namespace Pronia1.Areas.ProniaAdmin.Controllers
                     return View(productVM);
                 }
             }
+            var deletedTags=exist.ProductTags.Where(pt=>!productVM.TagIds.Exists(tid=>tid==pt.Id)).ToList();
+            context.ProductTags.RemoveRange(deletedTags);
+            exist.ProductTags.AddRange(productVM.TagIds.Where(tid => !exist.ProductTags.Any(pt => pt.TagId == tid)).Select(tid => new ProductTag { TagId = tid }));
             exist.Name = productVM.Name;
             exist.SKU = productVM.SKU;
             exist.Price = productVM.Price;

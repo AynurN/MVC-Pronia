@@ -43,7 +43,7 @@
                             <div class="form-group">
                                 <label for="TagIds" method="post">Tags</label>
                                 <input asp-for="TagIds" class="form-control" type="hidden">
-                               <select class="form-control" asp-for="TagIds" asp-items="new SelectList(Model.Tags,nameof(Tag.Id),nameof(Tag.Name))">
+                                <select asp-for="TagIds" asp-items="new SelectList(Model.Tags, nameof(Tag.Id), nameof(Tag.Name))" class="form-control" multiple="multiple">
                                 </select>
                                 <span asp-validation-for="TagIds" class="text-danger"></span>
                                </div>
