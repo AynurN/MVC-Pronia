@@ -274,7 +274,51 @@ namespace Pronia1.Areas.ProniaAdmin.Controllers
                 exist.ProductImages.Add(productImage);
 
             }
-            if(productVM.TagIds is not null)
+            
+            if (productVM.ImageIds is null)
+            {
+              productVM.ImageIds=new List<int>();
+            }
+            var deleteImages = exist.ProductImages?.Where(pi => !productVM.ImageIds.Exists(imgId => pi.Id == imgId) && pi.isPrimary==null).ToList();
+            foreach (var dImg in deleteImages)
+            {
+                dImg.ImageURL.DeleteFile(env.WebRootPath, "assets", "images", "website-images");
+            }
+            if(productVM.Photos is not null)
+            {
+                string errorText = string.Empty;
+                foreach (var file in productVM.Photos)
+                {
+                    if (!file.ValidateType("image/"))
+                    {
+                        errorText += $"{file.Name} type is not valid!";
+                        continue;
+                    }
+                    if (!file.ValidateSize(FileSize.MB, 1))
+                    {
+                        errorText += $"{file.Name} size is not valid!";
+                        continue;
+                    }
+                    ProductImage image = new ProductImage
+                    {
+                        IsDeleted = false,
+                        CreatedAt = DateTime.Now,
+                        isPrimary = null,
+                        ImageURL = await file.CreateFileAsync(env.WebRootPath, "assets", "images", "website-images")
+
+                    };
+                    exist.ProductImages.Add(image);
+
+                }
+                TempData["ErrorMessage"] = errorText;
+
+            }
+
+           
+
+
+            context.ProductImages.RemoveRange(deleteImages);
+            if (productVM.TagIds is not null)
             {
                 var deletedTags = exist.ProductTags.Where(pt => !productVM.TagIds.Exists(tid => tid == pt.Id)).ToList();
                 context.ProductTags.RemoveRange(deletedTags);

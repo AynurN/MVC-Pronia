@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aodCa9oJQPY6yMIugRO6XzrhdELLRW60ATLLwHaDtB0=",
+  "Hash": "bGruHarr0CQxY6I3pC0ErGvX/O8hVpw0/YsEZE+OWYM=",
   "Source": "Pronia1",
   "BasePath": "_content/Pronia1",
   "Mode": "Default",
@@ -4748,25 +4748,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\website-images\\4afa4a6b-aeb5-42c4-9155-1af2f7eb5917116-1162092_business-people-talking-png-jpg-freeuse-business-people.png"
     },
     {
-      "Identity": "C:\\Users\\user\\Desktop\\PB201-all\\MVC\\Pronia1\\Pronia1\\wwwroot\\assets\\images\\website-images\\562803bb-b7a0-4003-887e-bd24968c84b9Poppy_4_(4714144745).jpg",
-      "SourceId": "Pronia1",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\PB201-all\\MVC\\Pronia1\\Pronia1\\wwwroot\\",
-      "BasePath": "_content/Pronia1",
-      "RelativePath": "assets/images/website-images/562803bb-b7a0-4003-887e-bd24968c84b9Poppy_4_(4714144745).jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\website-images\\562803bb-b7a0-4003-887e-bd24968c84b9Poppy_4_(4714144745).jpg"
-    },
-    {
       "Identity": "C:\\Users\\user\\Desktop\\PB201-all\\MVC\\Pronia1\\Pronia1\\wwwroot\\assets\\images\\website-images\\64c129f9-749a-464e-9daf-3e402b6cd47b1351_lg.jpg",
       "SourceId": "Pronia1",
       "SourceType": "Discovered",
@@ -4860,25 +4841,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\website-images\\955bab30-f732-4569-ac10-b0dabf4f1ce51351_lg.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\user\\Desktop\\PB201-all\\MVC\\Pronia1\\Pronia1\\wwwroot\\assets\\images\\website-images\\9b509b63-977a-4b4a-8031-8b558f768c4b6dcaaa885d01e6a09f444ac0985c8330.jpg",
-      "SourceId": "Pronia1",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\PB201-all\\MVC\\Pronia1\\Pronia1\\wwwroot\\",
-      "BasePath": "_content/Pronia1",
-      "RelativePath": "assets/images/website-images/9b509b63-977a-4b4a-8031-8b558f768c4b6dcaaa885d01e6a09f444ac0985c8330.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\website-images\\9b509b63-977a-4b4a-8031-8b558f768c4b6dcaaa885d01e6a09f444ac0985c8330.jpg"
     },
     {
       "Identity": "C:\\Users\\user\\Desktop\\PB201-all\\MVC\\Pronia1\\Pronia1\\wwwroot\\assets\\images\\website-images\\aae183f6-593c-45cb-b905-beb2e9f1e0774.Class. Inheritance.pptx",
@@ -5088,25 +5050,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\website-images\\fe5d25e3-c6da-4fde-94f9-3c7b5897fde11-344.png"
-    },
-    {
-      "Identity": "C:\\Users\\user\\Desktop\\PB201-all\\MVC\\Pronia1\\Pronia1\\wwwroot\\assets\\images\\website-images\\fe74271c-ed32-4fbd-9e96-3f1abdbbbf3c1351_lg.jpg",
-      "SourceId": "Pronia1",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\PB201-all\\MVC\\Pronia1\\Pronia1\\wwwroot\\",
-      "BasePath": "_content/Pronia1",
-      "RelativePath": "assets/images/website-images/fe74271c-ed32-4fbd-9e96-3f1abdbbbf3c1351_lg.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\website-images\\fe74271c-ed32-4fbd-9e96-3f1abdbbbf3c1351_lg.jpg"
     },
     {
       "Identity": "C:\\Users\\user\\Desktop\\PB201-all\\MVC\\Pronia1\\Pronia1\\wwwroot\\assets\\images\\website-images\\fececbb2-1399-4a55-bdc1-bb451055b0236dcaaa885d01e6a09f444ac0985c8330.jpg",

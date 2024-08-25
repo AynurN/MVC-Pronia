@@ -93,15 +93,18 @@
             </div>
 
         </div>
+        
+    </div>
+    @section Deleteimage{
         <script>
             var btns = document.querySelectorAll(".cus-delete")
-            for (let i=0; i < btns.length; i++) {
+            for (let i = 0; i < btns.length; i++) {
                 btns[i].addEventListener("click", function () {
                     btns[i].parentElement.remove()
                 })
             }
 
         </script>
-
-    </div>
+    }
+   
    
