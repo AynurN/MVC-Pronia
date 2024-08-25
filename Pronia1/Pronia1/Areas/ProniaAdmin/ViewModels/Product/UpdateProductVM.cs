@@ -7,7 +7,9 @@ namespace Pronia1.Areas.ProniaAdmin.ViewModels
     {
         public string Name { get; set; }
         public string Description { get; set; }
-
+        public IFormFile? MainPhoto { get; set; }
+        public IFormFile? HoverPhoto { get; set; }
+        public List<IFormFile>? Photos { get; set; }
         [Required]
         public int? CategoryId { get; set; }
         public decimal Price { get; set; }
@@ -15,5 +17,7 @@ namespace Pronia1.Areas.ProniaAdmin.ViewModels
         public List<Category>? Categories { get; set; }
         public List<Tag>? Tags { get; set; }
         public List<int>? TagIds { get; set; }
+        public List<ProductImage>? Images { get; set; }
+        public List<int>? ImageIds { get; set; }
     }
 }

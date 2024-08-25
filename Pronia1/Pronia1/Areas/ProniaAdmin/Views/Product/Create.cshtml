@@ -23,6 +23,22 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="MainPhoto" method="post">Main image</label>
+                                <input asp-for="MainPhoto" class="form-control" placeholder="Name">
+                                <span asp-validation-for="MainPhoto" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="HoverPhoto" method="post">Hover Image </label>
+                                <input asp-for="HoverPhoto" class="form-control" placeholder="Name">
+                                <span asp-validation-for="HoverPhoto" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="Photos" method="post">Additional images </label>
+                                <input asp-for="Photos" class="form-control" placeholder="">
+                                <span asp-validation-for="Photos" class="text-danger"></span>
+                            </div>
+              
+                            <div class="form-group">
                                 <label for="SKU" method="post">SKU</label>
                                 <input asp-for="SKU" class="form-control" placeholder="SKU">
                                 <span asp-validation-for="SKU" class="text-danger"></span>
@@ -35,8 +51,7 @@
                             <div class="form-group">
                                 <label for="CategoryId" method="post">Product</label>
                                 <select class="form-control" asp-for="CategoryId" asp-items="new SelectList(Model.Categories,nameof(Category.Id),nameof(Category.Name))">
-                                     <option selected disabled>Choose Category</option> 
-                                   
+                                     <option selected disabled>Choose Category</option>  
                                 </select>
                                 <span asp-validation-for="CategoryId" class="text-danger"></span>
                             </div>
