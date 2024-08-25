@@ -62,6 +62,19 @@
                                 <span asp-validation-for="TagIds" class="text-danger"></span>
                                </div>
                             <div class="form-group">
+                                <label for="ColorIds" method="post">Colors</label>
+                                <select asp-for="ColorIds" asp-items="new SelectList(Model.Colors, nameof(Color.Id), nameof(Color.Name))" class="form-control" multiple="multiple">
+                                </select>
+                                <span asp-validation-for="ColorIds" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="SizeIds" method="post">Sizes</label>
+                                <select asp-for="SizeIds" asp-items="new SelectList(Model.Sizes, nameof(Size.Id), nameof(Size.Name))" class="form-control" multiple="multiple">
+                                </select>
+                                <span asp-validation-for="SizeIds" class="text-danger"></span>
+                            </div>
+                          
+                            <div class="form-group">
                                 <label for="Description" method="post">Description</label>
                                 <input asp-for="Description" class="form-control" placeholder="Description">
                                 <span asp-validation-for="Description" class="text-danger"></span>

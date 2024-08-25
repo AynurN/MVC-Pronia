@@ -17,5 +17,9 @@ namespace Pronia1.Areas.ProniaAdmin.ViewModels
         public List<Category>? Categories { get; set; }
         public List<Tag>? Tags { get; set; }
         public List<int>? TagIds { get; set; }
+        public List<Color>? Colors { get; set; }
+        public List<int>? ColorIds { get; set; }
+        public List<Size>? Sizes { get; set; }
+        public List<int>? SizeIds { get; set; }
     }
 }
